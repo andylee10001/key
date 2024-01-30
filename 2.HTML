@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指定訊息查詢</title>
+    <script>
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #87CEEB; /* 淡藍色背景 */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            width: 60%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>卡號系統</h1>
+    <label for="inputMessage">領取卡號：</label>
+    <input type="text" id="inputMessage" placeholder="查詢">
+    <button onclick="searchMessage()">查詢</button>
+
+    <div id="result"></div>
+
+    <!-- 引入新的 JavaScript 文件 -->
+    <script src="main.js"></script>
+
+    <script>
+        function searchMessage() {
+            var inputMessage = document.getElementById('inputMessage').value;
+            var result = getResultBasedOnInput(inputMessage);
+            displayResult(result);
+        }
+
+        function displayResult(result) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<p>查詢結果：</p><p>' + result + '</p>';
+        }
+    </script>
+</body>
+</html>
